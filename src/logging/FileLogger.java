@@ -3,6 +3,7 @@ package logging;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 
@@ -34,7 +35,7 @@ public class FileLogger implements Log {
 	public void write(String value) {
 		PrintWriter printWriter = null;
 	try {
-		 printWriter = new PrintWriter(this.outputFile);
+		 printWriter = new PrintWriter(new FileOutputStream(this.outputFile), true);
 		printWriter.print(value);
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
@@ -90,9 +91,9 @@ public class FileLogger implements Log {
 		try {
 			 printWriter = new PrintWriter(this.outputFile);
 			 switch (timeUnit) {
-				case MS : printWriter.print(value * Math.pow(10, -6) + "ms"); break;
-				case US : printWriter.print(value * Math.pow(10, -3) + "us"); break;
-				case SEC : printWriter.print(value * Math.pow(10, -9) + "sec"); break;
+				case MS : printWriter.print(value + "ms"); break;
+				case US : printWriter.print(value * Math.pow(10, 3) + "us"); break;
+				case SEC : printWriter.print(value * Math.pow(10, -3) + "sec"); break;
 				default:
 					break;
 				}

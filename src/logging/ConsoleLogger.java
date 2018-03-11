@@ -49,7 +49,7 @@ public class ConsoleLogger implements Log {
 	@Override
 	public void writeTime(long value, TimeUnit timeUnit) {
 		switch (timeUnit) {
-		case MS : System.out.println(value * Math.pow(10, -6) + "ms"); break;
+		case MS : System.out.println(value + "ms"); break;
 		case US : System.out.println(value * Math.pow(10, -3) + "us"); break;
 		case SEC : System.out.println(value * Math.pow(10, -9) + "sec"); break;
 		default:

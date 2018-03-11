@@ -3,6 +3,8 @@
  */
 package bench;
 
+import java.math.BigDecimal;
+
 // TODO: Auto-generated Javadoc
 /**
  * Benchmark different hardware components.
@@ -19,7 +21,7 @@ public interface Benchmark {
 	/**
 	 * Run.
 	 */
-	void run();	
+	BigDecimal run();	
 
 	/**
 	 * Clean.
